@@ -138,6 +138,48 @@ st.markdown("""
     color: #FFFFFF !important;
 }
 
+
+/* Elegant top navigation */
+
+[data-testid="stSegmentedControl"] {
+    width: 100%;
+    margin: 12px 0 20px;
+}
+
+[data-testid="stSegmentedControl"] [role="radiogroup"] {
+    display: flex !important;
+    width: 100% !important;
+    gap: 10px !important;
+    background: transparent !important;
+}
+
+[data-testid="stSegmentedControl"] button {
+    flex: 1 !important;
+    min-height: 58px !important;
+    padding: 14px 20px !important;
+    background-color: #E8DCCB !important;
+    color: #513525 !important;
+    border: 1px solid #DCCBBA !important;
+    border-radius: 12px !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+}
+
+[data-testid="stSegmentedControl"] button * {
+    color: inherit !important;
+}
+
+[data-testid="stSegmentedControl"] button[aria-checked="true"],
+[data-testid="stSegmentedControl"] button[aria-pressed="true"],
+[data-testid="stSegmentedControl"] button[aria-selected="true"] {
+    background-color: #654330 !important;
+    color: #FFFFFF !important;
+    border-color: #654330 !important;
+}
+
+
+
+
 </style>
 """, unsafe_allow_html=True)
 
