@@ -14,7 +14,7 @@ st.set_page_config(
     page_title="BrightMart | Smart Discount Optimization",
     page_icon="🛍️",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
 BASE = Path(__file__).resolve().parent
@@ -236,22 +236,26 @@ with hct_col:
 
 st.divider()
 
+
+
 # --------------------------------------------------
-# SIDEBAR NAVIGATION
+# TOP NAVIGATION
 # --------------------------------------------------
 
-with st.sidebar:
-    st.markdown("## BrightMart")
-    st.caption("SMART RETAIL ANALYTICS")
+page = st.segmented_control(
+    "Navigation",
+    options=[
+        "Home",
+        "Customer Predictions",
+        "Model Insights"
+    ],
+    default="Home",
+    selection_mode="single",
+    label_visibility="collapsed",
+    key="main_navigation"
+)
 
-    page = st.radio(
-        "Navigation",
-        ["Home", "Customer Predictions", "Model Insights"]
-    )
-
-    st.divider()
-    st.caption("Data Science for Business Application")
-    st.caption("Higher Colleges of Technology")
+st.divider()
 
 
 # --------------------------------------------------
