@@ -333,7 +333,7 @@ with st.container(key="top_nav"):
             type="primary" if st.session_state.active_page == "Home" else "secondary"
         ):
             st.session_state.active_page = "Home"
-             st.rerun()
+            st.rerun()
 
     with nav2:
         if st.button(
@@ -342,7 +342,7 @@ with st.container(key="top_nav"):
             type="primary" if st.session_state.active_page == "Customer Predictions" else "secondary"
         ):
             st.session_state.active_page = "Customer Predictions"
-             st.rerun()
+            st.rerun()
 
     with nav3:
         if st.button(
@@ -351,7 +351,7 @@ with st.container(key="top_nav"):
             type="primary" if st.session_state.active_page == "Model Insights" else "secondary"
         ):
             st.session_state.active_page = "Model Insights"
-             st.rerun()
+            st.rerun()
 
 page = st.session_state.active_page
 
