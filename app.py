@@ -119,6 +119,25 @@ st.markdown("""
     .info-card h3 {
         margin-top: 0;
     }
+
+    
+/* Improve recommendation message readability */
+[data-testid="stAlert"] p,
+[data-testid="stAlert"] span {
+    color: #FFFFFF !important;
+}
+
+/* Improve download button readability */
+[data-testid="stDownloadButton"] button {
+    background-color: #624330 !important;
+    color: #FFFFFF !important;
+    border-radius: 10px !important;
+}
+
+[data-testid="stDownloadButton"] button p {
+    color: #FFFFFF !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
