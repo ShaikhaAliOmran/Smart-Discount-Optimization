@@ -178,6 +178,41 @@ st.markdown("""
 }
 
 
+/* BrightMart top navigation buttons */
+
+.st-key-top_nav button {
+    width: 100% !important;
+    min-height: 64px !important;
+    background-color: #E8DCCB !important;
+    color: #513525 !important;
+    border: 1px solid #D8C5B3 !important;
+    border-radius: 12px !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+}
+
+.st-key-top_nav button p,
+.st-key-top_nav button span {
+    color: #513525 !important;
+    font-size: 17px !important;
+}
+
+.st-key-top_nav button[kind="primary"] {
+    background-color: #654330 !important;
+    color: #FFFFFF !important;
+    border-color: #654330 !important;
+}
+
+.st-key-top_nav button:hover {
+    border-color: #654330 !important;
+}
+
+
+/* White text on selected navigation button */
+.st-key-top_nav button[kind="primary"] p,
+.st-key-top_nav button[kind="primary"] span {
+    color: #FFFFFF !important;
+}
 
 
 </style>
@@ -284,18 +319,41 @@ st.divider()
 # TOP NAVIGATION
 # --------------------------------------------------
 
-page = st.segmented_control(
-    "Navigation",
-    options=[
-        "Home",
-        "Customer Predictions",
-        "Model Insights"
-    ],
-    default="Home",
-    selection_mode="single",
-    label_visibility="collapsed",
-    key="main_navigation"
-)
+
+if "active_page" not in st.session_state:
+    st.session_state.active_page = "Home"
+
+with st.container(key="top_nav"):
+    nav1, nav2, nav3 = st.columns(3)
+
+    with nav1:
+        if st.button(
+            "Home",
+            use_container_width=True,
+            type="primary" if st.session_state.active_page == "Home" else "secondary"
+        ):
+            st.session_state.active_page = "Home"
+             st.rerun()
+
+    with nav2:
+        if st.button(
+            "Customer Predictions",
+            use_container_width=True,
+            type="primary" if st.session_state.active_page == "Customer Predictions" else "secondary"
+        ):
+            st.session_state.active_page = "Customer Predictions"
+             st.rerun()
+
+    with nav3:
+        if st.button(
+            "Model Insights",
+            use_container_width=True,
+            type="primary" if st.session_state.active_page == "Model Insights" else "secondary"
+        ):
+            st.session_state.active_page = "Model Insights"
+             st.rerun()
+
+page = st.session_state.active_page
 
 st.divider()
 
