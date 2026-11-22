@@ -510,18 +510,32 @@ elif page == "Customer Predictions":
 
         st.markdown("### Recommendation")
 
+     
         if uplift > 0:
-            st.success("Recommendation: Offer a Discount")
+            st.markdown(
+                '<div style="background-color:#D2D9CD; '
+                'color:#3E5945; padding:20px; '
+                'border-radius:12px; font-weight:600;">'
+                '✓ Recommendation: Offer a Discount</div>',
+                unsafe_allow_html=True
+            )
             st.write(
                 "The model estimates that this customer "
                 "is more likely to purchase with a discount."
             )
         else:
-            st.info("Recommendation: No Offer")
+            st.markdown(
+                '<div style="background-color:#536779; '
+                'color:#FFFFFF; padding:20px; '
+                'border-radius:12px; font-weight:600;">'
+                '− Recommendation: No Offer</div>',
+                unsafe_allow_html=True
+            )
             st.write(
                 "The model does not estimate an increase "
                 "in purchase probability from a discount."
             )
+
 
         st.markdown("### Understanding Your Result")
 
