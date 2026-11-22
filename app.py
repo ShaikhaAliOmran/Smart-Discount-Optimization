@@ -323,39 +323,43 @@ st.divider()
 if "active_page" not in st.session_state:
     st.session_state.active_page = "Home"
 
+def change_page(destination):
+    st.session_state.active_page = destination
+
 with st.container(key="top_nav"):
     nav1, nav2, nav3 = st.columns(3)
 
     with nav1:
-        if st.button(
+        st.button(
             "Home",
             use_container_width=True,
-            type="primary" if st.session_state.active_page == "Home" else "secondary"
-        ):
-            st.session_state.active_page = "Home"
-        
+            type="primary" if st.session_state.active_page == "Home" else "secondary",
+            on_click=change_page,
+            args=("Home",)
+        )
 
     with nav2:
-        if st.button(
+        st.button(
             "Customer Predictions",
             use_container_width=True,
-            type="primary" if st.session_state.active_page == "Customer Predictions" else "secondary"
-        ):
-            st.session_state.active_page = "Customer Predictions"
-           
+            type="primary" if st.session_state.active_page == "Customer Predictions" else "secondary",
+            on_click=change_page,
+            args=("Customer Predictions",)
+        )
 
     with nav3:
-        if st.button(
+        st.button(
             "Model Insights",
             use_container_width=True,
-            type="primary" if st.session_state.active_page == "Model Insights" else "secondary"
-        ):
-            st.session_state.active_page = "Model Insights"
-           
+            type="primary" if st.session_state.active_page == "Model Insights" else "secondary",
+            on_click=change_page,
+            args=("Model Insights",)
+        )
 
 page = st.session_state.active_page
 
 st.divider()
+
 
 
 # --------------------------------------------------
