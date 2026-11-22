@@ -502,11 +502,42 @@ elif page == "Customer Predictions":
 
         st.markdown("### Purchase Probability Comparison")
 
-        st.write(f"With Discount: {p_discount:.2%}")
-        st.progress(float(np.clip(p_discount, 0, 1)))
+       
+        st.markdown(
+            f"""
+            <div style="margin-bottom:24px;">
+                <div style="display:flex; justify-content:space-between;
+                            color:#513525; margin-bottom:10px;">
+                    <span>With Discount</span>
+                    <strong>{p_discount:.2%}</strong>
+                </div>
+                <div style="background:#E6D8CA; height:14px;
+                            border-radius:20px; overflow:hidden;">
+                    <div style="background:#654330;
+                                width:{np.clip(p_discount, 0, 1)*100:.2f}%;
+                                height:100%; border-radius:20px;">
+                    </div>
+                </div>
+            </div>
 
-        st.write(f"Without Offer: {p_control:.2%}")
-        st.progress(float(np.clip(p_control, 0, 1)))
+            <div style="margin-bottom:24px;">
+                <div style="display:flex; justify-content:space-between;
+                            color:#513525; margin-bottom:10px;">
+                    <span>Without Offer</span>
+                    <strong>{p_control:.2%}</strong>
+                </div>
+                <div style="background:#E6D8CA; height:14px;
+                            border-radius:20px; overflow:hidden;">
+                    <div style="background:#B69C84;
+                                width:{np.clip(p_control, 0, 1)*100:.2f}%;
+                                height:100%; border-radius:20px;">
+                    </div>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
 
         st.markdown("### Recommendation")
 
